@@ -63,3 +63,5 @@ spec:
             - --innodb_initialized
           initialDelaySeconds: 20
           periodSeconds: 10
+
+#kubectl port-forward service/mariadb-service 3306:3306
