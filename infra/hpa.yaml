@@ -1,0 +1,44 @@
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-hpa
+  namespace: default
+  labels:
+    app: backend
+spec:
+  minReplicas: 2
+  maxReplicas: 5
+  scaleTargetRef:
+    kind: Deployment
+    name: backend-deployment
+    apiVersion: apps/v1
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: frontend-hpa
+  namespace: default
+  labels:
+    app: frontend
+spec:
+  minReplicas: 2
+  maxReplicas: 5
+  scaleTargetRef:
+    kind: Deployment
+    name: frontend-deployment
+    apiVersion: apps/v1
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
