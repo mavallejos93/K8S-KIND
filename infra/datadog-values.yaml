@@ -1,0 +1,23 @@
+datadog:
+  clusterName: kind-kind
+  logs:
+    enabled: true
+    containerCollectAll: true
+  clusterAgent:
+    enabled: true
+  kubelet:
+    tlsVerify: false
+  no-proxy: true
+  env:
+    - name: DD_HOSTNAME
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.nodeName
+  networkMonitoring:
+    enabled: true
+  collectEvents: true
+clusterAgent:
+  enabled: true
+  rbac: 
+    create: true
+

@@ -29,8 +29,8 @@ metadata:
   labels:
     app: frontend
 spec:
-  minReplicas: 2
-  maxReplicas: 5
+  minReplicas: 1
+  maxReplicas: 3
   scaleTargetRef:
     kind: Deployment
     name: frontend-deployment
@@ -41,4 +41,4 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 60
+          averageUtilization: 80
