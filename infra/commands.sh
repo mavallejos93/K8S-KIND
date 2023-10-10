@@ -5,6 +5,10 @@ docker build . -t tech-frontend:v1.0
 
 Docker image ls 
 
+############################## up docker image in KIND ##############################
+
+kind load docker-image tech-backend:v1.0 
+
 ############################## install datadog with helm ##############################
 helm repo add datadog https://helm.datadoghq.com
 
